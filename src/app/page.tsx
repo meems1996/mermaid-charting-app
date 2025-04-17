@@ -2,8 +2,10 @@
 import React from "react";
 import { useEffect, useRef, useState } from "react";
 import mermaid from "mermaid";
-import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
+import CodeMirror from '@uiw/react-codemirror';
+import { markdown } from '@codemirror/lang-markdown';
+
 
 type MermaidProps = {
   chart: string;
@@ -16,12 +18,20 @@ export default function Home() {
 
   return (
     <div className="space-y-4 max-w-3xl mx-auto mt-10">
-      <Textarea
-        value={code}
-        onChange={(e) => setCode(e.target.value)}
-        rows={10}
-        placeholder="Type your Mermaid diagram here..."
-      />
+      <div className="border rounded-md overflow-hidden">
+        <CodeMirror
+          value={code}
+          height="200px"
+          extensions={[markdown()]}
+          onChange={(value) => setCode(value)}
+          theme="dark"
+          basicSetup={{
+            lineNumbers: true,
+            foldGutter: true,
+            highlightActiveLine: true,
+          }}
+        />
+      </div>
       <Button onClick={() => setRendered(code)}>Render</Button>
       <div className="border p-4 rounded-md">
         <Mermaid chart={rendered} />
