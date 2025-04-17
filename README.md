@@ -8,6 +8,8 @@ Comparing it later to SuperTokens by building it with SuperTokens too and Supaba
 
 ![alt text](image.png)
 
+![alt text](image-1.png)
+
 ## Getting Started
 
 First, run the development server:
