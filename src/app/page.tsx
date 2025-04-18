@@ -70,7 +70,7 @@ export default function Home() {
   );
 }
 
-export function Mermaid({ chart, id }: MermaidProps) {
+function Mermaid({ chart, id }: MermaidProps) {
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
