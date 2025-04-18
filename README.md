@@ -10,6 +10,12 @@ Comparing it later to SuperTokens by building it with SuperTokens too and Supaba
 
 ![alt text](image-1.png)
 
+![alt text](image-2.png)
+
+![alt text](image-3.png)
+
+![alt text](image-5.png)
+
 ## Getting Started
 
 First, run the development server:
@@ -34,3 +40,7 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 * ShadCN for the UI
 * Mermaid.js library for the diagrams parsing.
 
+
+Using clerk, after set up, and using email authentication the email arrives pretty fast and also you for a code like so: 
+
+![alt text](image-4.png)
