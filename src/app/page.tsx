@@ -81,7 +81,9 @@ function Mermaid({ chart, id }: MermaidProps) {
         mermaid.initialize({ startOnLoad: false });
 
         // Clear previous render just in case
-        ref.current.innerHTML = "";
+        if (ref.current) {
+          ref.current.innerHTML = "";
+        }
 
         mermaid
         .render(id, chart)
