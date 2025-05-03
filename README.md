@@ -1,46 +1,85 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Mermaid Charting App
 
-I am building a MermaidJS editor tool, and adding authentication using Clerk to it. 
+This is a **MermaidJS editor tool** built with [Next.js](https://nextjs.org). It integrates **Clerk** for authentication and **Supabase** for user-specific chart management.
 
-Connecting it to Supabase for more user management.
+## Features
 
-Comparing it later to SuperTokens by building it with SuperTokens too and Supabase too. 
+- **MermaidJS Editor**: Create and render diagrams using Mermaid syntax.
+- **Authentication**: Secure user authentication powered by [Clerk](https://clerk.dev).
+- **Database Integration**: Save and retrieve user-specific charts using [Supabase](https://supabase.com).
 
-![alt text](image.png)
+## How It Works
 
-![alt text](image-1.png)
+1. **Authentication with Clerk**:
+   - Users can sign in or sign up using Clerk.
+   - Once authenticated, user sessions are managed seamlessly.
 
-![alt text](image-2.png)
+2. **Chart Management with Supabase**:
+   - Authenticated users can save their Mermaid charts to a Supabase database.
+   - Charts are fetched and displayed for the logged-in user.
 
-![alt text](image-3.png)
-
-![alt text](image-5.png)
+3. **MermaidJS Rendering**:
+   - The app uses the Mermaid library to parse and render diagrams in real-time.
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+- Node.js installed on your machine.
+- Supabase project with the required database table (`charts`).
+
+### Installation
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/your-repo/mermaid-charting-app.git
+   cd mermaid-charting-app
+   ```
+
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+
+3. Set up environment variables:
+   - Add your **Clerk** and **Supabase** keys in `.env.local`:
+     ```env
+     NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=your-clerk-publishable-key
+     CLERK_SECRET_KEY=your-clerk-secret-key
+     NEXT_PUBLIC_SUPABASE_URL=your-supabase-url
+     NEXT_PUBLIC_SUPABASE_ANON_KEY=your-supabase-anon-key
+     ```
+
+4. Run the development server:
+   ```bash
+   npm run dev
+   ```
+
+5. Open [http://localhost:3000](http://localhost:3000) in your browser.
+
+## Development
+
+### Core Tools & Libraries
+
+- **Next.js**: Framework for building the app.
+- **Clerk**: Authentication and user management.
+- **Supabase**: Database for storing user charts.
+- **Mermaid.js**: Library for rendering diagrams.
+- **ShadCN**: UI components and styling.
+
+### Database Schema
+
+Ensure your Supabase database has the following table:
+
+```sql
+CREATE TABLE charts (
+  id SERIAL PRIMARY KEY,
+  user_id UUID NOT NULL,
+  content TEXT NOT NULL,
+  created_at TIMESTAMP DEFAULT NOW()
+);
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## License
 
-## Development 
-
-### 🔧 Core Tools & Libraries
-
-* Next.js 
-* ShadCN for the UI
-* Mermaid.js library for the diagrams parsing.
-
-
-Using clerk, after set up, and using email authentication the email arrives pretty fast and also you for a code like so: 
-
-![alt text](image-4.png)
+This project is licensed under the MIT License.
