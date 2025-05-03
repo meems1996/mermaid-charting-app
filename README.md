@@ -8,8 +8,6 @@ This is a **MermaidJS editor tool** built with [Next.js](https://nextjs.org). It
 - **Authentication**: Secure user authentication powered by [Clerk](https://clerk.dev).
 - **Database Integration**: Save and retrieve user-specific charts using [Supabase](https://supabase.com).
 
-![Mermaid GIF](public/PeterPan-Mermaid-GIF.gif)
-
 ## How It Works
 
 1. **Authentication with Clerk**:
